@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>P&G Casamento - Confirmar presença</title>
+        <link rel="stylesheet" href="/assets/css/global.css" />
+        <link rel="stylesheet" href="/assets/css/galeria.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="shortcut icon"
+            href="https://pg-wedding-website.s3.us-east-1.amazonaws.com/logos/2.png"
+            type="image/x-icon"
+        />
+    </head>
+
+    <body class="text-black bg-gray-100">
+        <a class="logo flex" href="/">
+            <img
+                src="https://pg-wedding-website.s3.us-east-1.amazonaws.com/logos/3.png"
+                alt="Logo"
+                height="120px"
+                class="mx-auto mt-0"
+            />
+        </a>
+        <div class="hero w-full h-[40vh] text-white relative">
+            <div class="container text-center">
+                <h1 class="font-montserrat text-4xl md:text-4xl pt-12 font-light tracking-wide">
+                    Relembre os momentos do casamento
+                </h1>
+            </div>
+            <img src="https://pg-wedding-website.s3.us-east-1.amazonaws.com/hero1.jpeg" alt="Foto de fundo" class="background">
+            <div class="overlay"></div>
+        </div>
+        <main class="hero items-start w-full p-2 pt-24 bg-transparent">
+            <div
+                class="container mx-auto text-center flex flex-col justify-start"
+            >
+                <!-- Produtos -->
+                <div class="flex flex-wrap gap-4">
+                    <div class="max-w-[250px] mx-auto overflow-hidden">
+                        <img
+                            onclick="abrirModal(this.src)"
+                            class="w-full object-cover"
+                            src="https://via.placeholder.com/300x200"
+                            alt="Produto"
+                        />
+                    </div>
+                    <div class="max-w-[250px] mx-auto overflow-hidden">
+                        <img
+                            onclick="abrirModal(this.src)"
+                            class="w-full object-cover"
+                            src="https://via.placeholder.com/300x200"
+                            alt="Produto"
+                        />
+                    </div>
+                    <div class="max-w-[250px] mx-auto overflow-hidden">
+                        <img
+                            onclick="abrirModal(this.src)"
+                            class="w-full object-cover"
+                            src="https://via.placeholder.com/300x200"
+                            alt="Produto"
+                        />
+                    </div>
+                    <div class="max-w-[250px] mx-auto overflow-hidden">
+                        <img
+                            onclick="abrirModal(this.src)"
+                            class="w-full object-cover"
+                            src="https://via.placeholder.com/300x200"
+                            alt="Produto"
+                        />
+                    </div>
+                    <div class="max-w-[250px] mx-auto overflow-hidden">
+                        <img
+                            onclick="abrirModal(this.src)"
+                            class="w-full object-cover"
+                            src="https://via.placeholder.com/300x200"
+                            alt="Produto"
+                        />
+                    </div>
+                    <div class="max-w-[250px] mx-auto overflow-hidden">
+                        <img
+                            onclick="abrirModal(this.src)"
+                            class="w-full object-cover"
+                            src="https://via.placeholder.com/300x200"
+                            alt="Produto"
+                        />
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="modal" class="modal" onclick="fecharModal()">
+            <button class="close-btn" onclick="fecharModal()">×</button>
+            <img id="imagemModal" onclick="zoomImagem(event)">
+        </div>
+        <script src="/assets/js/galeria.js"></script>
+    </body>
+</html>
