@@ -27,6 +27,9 @@ html {
     scroll-behavior: smooth;
 }
 
+#content {
+    transition: opacity 5s ease;
+}
 
 .hero {
     height: 100vh;
@@ -42,6 +45,8 @@ html {
     object-fit: cover;
     object-position: center;
     z-index: 0;
+    top: 0;
+    left: 0;
 }
 
 .hero>div.container {
