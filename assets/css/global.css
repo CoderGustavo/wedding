@@ -28,7 +28,7 @@ html {
 }
 
 #content {
-    transition: opacity 5s ease;
+    transition: opacity 0.25s ease;
 }
 
 .hero {
