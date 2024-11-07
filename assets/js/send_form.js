@@ -7,6 +7,9 @@ $(document).ready(function () {
         const formData = form.serializeArray();
         const jsonData = convertFormDataToJson(formData);
 
+        // Adiciona a chave da API manualmente ao JSON
+        jsonData.apikey = "8201c3d9-60f7-41f5-a91b-a0ca0afaa0fc";
+
         sendForm(form.attr("action"), form.attr("method"), jsonData);
     });
 });
@@ -19,16 +22,26 @@ function convertFormDataToJson(formData) {
 }
 
 function sendForm(url, method, data) {
-    $.ajax({
-        url: url,
-        method: method,
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        success: function () {
-            console.log("Formulário enviado com sucesso!");
+    fetch(url, {
+        method: method, // Método (GET, POST, etc.)
+        headers: {
+            'Content-Type': 'application/json', // Define o tipo de conteúdo como JSON
         },
-        error: function (xhr, status, error) {
-            console.error("Erro ao enviar o formulário:", status, error);
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.status);
         }
+        return response.json(); // Retorna a resposta como JSON, se necessário
+    })
+    .then(data => {
+        console.log("Formulário enviado com sucesso!");
+    })
+    .catch(error => {
+        console.error("Erro ao enviar o formulário:", error);
     });
 }
+
+
+
