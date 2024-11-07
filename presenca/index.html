@@ -24,10 +24,11 @@
             <div class="container mx-auto text-center flex flex-col gap-64 md:gap-32 px-auto">
                 <div class="bg-black/50 max-w-[500px] h-[50vh] w-full mx-auto box py-12 px-8 flex flex-col gap-8 shadow-xl justify-between shadow-lg">
                     <h6 class="font-montserrat capitalize text-xl md:text-3xl">Confirmar presença</h6>
-                    <form action="" class="mt-4">
+                    <form action="https://sswcfdwmlkylvj75bjpvozio540tohce.lambda-url.us-east-1.on.aws/" method="POST" class="mt-4">
+                        <input type="hidden" name="apikey" value="8201c3d9-60f7-41f5-a91b-a0ca0afaa0fc">
                         <div class="text-start">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-200">Qual o seu nome?</label>
-                            <input type="text" id="name" class="outline-none focus:bg-gray-900/80 bg-gray-800/80 border border-gray-900 text-gray-100 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5" placeholder="Seu nome" required />
+                            <input type="text" name="name" id="name" class="outline-none focus:bg-gray-900/80 bg-gray-800/80 border border-gray-900 text-gray-100 text-sm rounded-lg focus:ring-lime-500 focus:border-lime-500 block w-full p-2.5" placeholder="Seu nome" required />
                         </div>
                         <input type="submit" value="Confirmar minha presença" class="h-12 text-white cursor-pointer bg-lime-800 hover:bg-lime-700 p-2 w-full mt-2 rounded-lg">
                         <span class="text-sm text-gray-500 mt-2 flex justify-center">Serão 3 confirmações até o casamento</span>
@@ -41,5 +42,6 @@
         </main>
     </div>
     <script src="/assets/js/dynamic_pages.js"></script>
+    <script src="/assets/js/send_form.js"></script>
 </body>
 </html>
