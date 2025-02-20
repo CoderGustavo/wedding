@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P&G Casamento - Confirmar presença</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
+    <link rel="shortcut icon" href="https://pub-9fd5539e5d87479b89a528bdcc22e2f5.r2.dev/logos/2.png"
+        type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="content" class="overflow-hidden">
+        <div id="modal_success"
+            class="hidden fixed inset-0 z-[999] transition-colors duration-[0.5s] max-w-lg w-full p-2 size-fit left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div class="bg-gray-900 text-white rounded-lg p-8 w-full transform scale-0 transition-transform duration-300">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-lime-800 mb-6">
+                        <svg class="h-8 w-8 text-white animate-[checkmark_0.4s_ease-in-out_0.2s_both]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Presença confirmada com sucesso!</h3>
+                    <p class="text-gray-400 mb-6">Agradecemos a sua confirmação. Ficaremos muito felizes em ver vocês em nossa cerimônia!</p>
+                    <button class="close_modal_success w-full px-4 py-2 bg-lime-800 text-white rounded hover:bg-lime-700 transition-colors">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal"
+            class="hidden fixed inset-0 flex items-end justify-center z-[999] transition-colors duration-[0.5s]">
+            <div
+                class="bg-gray-900 text-white rounded-t-lg p-6 max-w-lg w-full mx-2 -mb-[100%] h-[70vh] transition-all duration-[0.5s] flex flex-col justify-between">
+                <div>
+
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex flex-col">
+                            <h2 class="text-xl font-bold">Confirmando presença</h2>
+                            <h4 class="text-md text-gray-400 subtitle-modal">Selecione o nome da pessoa para confirmar a presença</h4>
+                        </div>
+                        <button class="close_modal_confirm_guest text-gray-500 hover:text-gray-700 text-2xl">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="mt-8">
+                        <p class="flex gap-2 text-gray-400 loading_guests">
+                            <img class="animate-spin invert" width="24" height="24"
+                                src="https://img.icons8.com/ios/50/loading.png" alt="loading" />
+                            Carregando nomes...
+                        </p>
+                        <p class="text-gray-200 message-modal-confirmed-guest hidden">
+                            Nomes confirmados
+                        </p>
+                        <div class="hidden flex-col mb-4" id="names_confirmed">
+                            <ul class="list-disc pl-5">
+                                <li></li>
+                            </ul>
+                        </div>
+                        <p class="text-gray-200 message-modal-to-confirm-guest hidden">
+                            Nomes ainda não confirmados
+                        </p>
+                        <div class="hidden flex-col gap-2" id="names_to_confirm">
+                            <label class="items-center space-x-3 cursor-pointer group shadow-lg bg-gray-800 border border-gray-800 hover:border-lime-800 rounded w-full py-4 px-2">
+                                <input type="checkbox" class="opacity-0 absolute h-0 w-0 peer">
+                                <div class="w-6 h-6 border border-gray-300 rounded-lg flex items-center justify-center
+                                            peer-checked:bg-lime-800 peer-checked:border-lime-800
+                                            group-hover:border-lime-800">
+                                    <svg class="w-4 h-4 text-gray-800 peer-checked:text-white transition-opacity duration-200" viewBox="0 0 24 24">
+                                        <path d="M20 6L9 17l-5-5" stroke="currentColor" fill="none" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300 peer-checked:text-lime-700 transition-colors duration-200">nome - função - confirmações</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end space-x-2 footer-modal-confirm-guest">
+                    <button class="close_modal_confirm_guest px-4 py-2 text-gray-300 hover:text-gray-100">
+                        Cancelar
+                    </button>
+                    <button class="px-4 py-2 bg-lime-800 text-white rounded hover:bg-lime-700" id="btn_confirm_guest">
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <a class="logo flex bg-transparent" href="/">
+            <img src="https://pub-9fd5539e5d87479b89a528bdcc22e2f5.r2.dev/logos/2.png" alt="Logo" height="120px"
+                class="mx-auto mt-0" />
+        </a>
+        <main class="hero w-full text-white bg-slate-200 p-2">
+            <div class="container mx-auto text-center flex flex-col gap-64 md:gap-32 px-auto">
+                <div
+                    class="bg-black/50 max-w-[500px] h-[50vh] backdrop-blur-[2px] w-full mx-auto box py-12 px-8 flex flex-col gap-8 shadow-xl justify-between shadow-lg">
+                    <h6 class="font-montserrat capitalize text-xl md:text-3xl">
+                        Confirmar presença
+                    </h6>
+                    <div action="" method="POST" class="mt-4">
+                        <input type="hidden" name="apikey" value="8201c3d9-60f7-41f5-a91b-a0ca0afaa0fc" />
+                        <div class="text-start">
+                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-200">Qual o seu
+                                número telefone?</label>
+                            <input type="text" name="phone" id="phone"
+                                class="outline-none focus:bg-gray-900/80 bg-gray-800/80 border border-gray-900 text-gray-100 text-sm rounded-lg [&:not(:placeholder-shown)]:border-lime-700 focus:ring-lime-700 focus:border-lime-700 block w-full p-2.5"
+                                placeholder="Seu telefone (WhatsApp)" required value=""/>
+                        </div>
+                        <button value="Confirmar minha presença"
+                            class="h-12 text-white cursor-pointer bg-lime-800 hover:bg-lime-700 p-2 w-full mt-2 rounded-lg"
+                            id="open_modal_confirm_guest" />
+                        Confirmar minha presença
+                        </button>
+                        <span class="text-sm text-red-500 font-semibold mt-2 flex justify-center hidden" id="has_error">Sem erros.</span>
+                        <span class="text-sm text-gray-500 mt-2 flex justify-center">Serão 3 confirmações até o
+                            casamento</span>
+                    </div>
+
+                    <a href="/" class="mt-6">Voltar ao início</a>
+                </div>
+            </div>
+            <img src="https://pub-9fd5539e5d87479b89a528bdcc22e2f5.r2.dev/hero1.jpeg" alt="Foto de fundo"
+                class="background" />
+            <div class="overlay"></div>
+        </main>
+    </div>
+    <script src="/assets/js/dynamic_pages.js"></script>
+    <script src="/assets/js/send_form.js"></script>
+    <script src="/assets/js/confirm_guest.js"></script>
+</body>
+
+</html>
